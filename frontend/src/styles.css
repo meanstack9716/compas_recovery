@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color: #555;
+  font-size: 10px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: #000 !important;
+}
+
