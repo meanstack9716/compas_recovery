@@ -9,11 +9,14 @@ import bodyParser from "body-parser";
 import config from "./config.json";
 import expressValidator from "express-validator";
 
+//mongo connection import
+import db from './mongodb/db';
+
 const app = express();
 app.server = http.createServer(app);
 
 app.use(cors());
-
+app.use(db()) // call db function
 // 3rd party middleware
 app.use(cors({
     exposedHeaders: config.corsHeaders

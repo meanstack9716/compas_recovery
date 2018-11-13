@@ -5,6 +5,7 @@
   "main": "dist",
   "scripts": {
     "start": "node dist",
+    "prestart": "npm run build",
     "build": "babel src -s -D -d dist --presets es2015,stage-0",
     "dev": "ENV=dev nodemon --max_old_space_size=8192 -w src --exec \"babel-node src --presets es2015,stage-0\""
   },
@@ -12,6 +13,7 @@
   "author": "Jason Miller <jason@developit.ca>",
   "license": "MIT",
   "dependencies": {
+    "babel": "^6.23.0",
     "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
     "cors": "^2.8.5",
@@ -20,10 +22,12 @@
     "glob": "^7.1.3",
     "http": "0.0.0",
     "jsonwebtoken": "^8.3.0",
+    "md5": "^2.2.1",
+    "mongoose": "^5.3.12",
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.9.0",
     "babel-eslint": "^6.1.2",
     "babel-preset-es2015": "^6.9.0",

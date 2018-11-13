@@ -8,5 +8,6 @@
         "name": "hr_recruit_dev",
         "password": "java@123",
         "username": "root"
-    }
+    },
+    "mongodb": "mongodb://localhost/compass_recovery"
 }

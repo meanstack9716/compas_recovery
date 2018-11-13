@@ -8,7 +8,7 @@ export default class BaseAPIController {
         res.status(400).send(errorHandler(err));
     }
 
-    handleSuccessResponse(req, res, next, data) {
+    handleSuccessResponse(res, data, next) {
         res.json(data) 
     }
 }

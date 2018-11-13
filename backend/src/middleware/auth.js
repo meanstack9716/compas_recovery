@@ -1,4 +1,3 @@
-import moment from "moment";
 import jwt from "jsonwebtoken";
 
 export class AuthController {
