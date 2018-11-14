@@ -1,126 +1,119 @@
-<div class="landing-page">
-  <section class="logo">
-    <figure><img src="/assets/images/logo.png" /></figure>
-    <div class="logo-tagline">
-      <span>Professional Vehicle Breakdown Recovery Towing Service</span>
+<div class="container-fluid">
+  <div class="row landing-page">
+    <div class="col-sm-6 logo">
+      <img src="/assets/images/logo.png" />
+      <div class="logo-tagline">
+        <span>Professional Vehicle Breakdown Recovery Towing Service</span>
+      </div>
+      <section class=""></section>
     </div>
-  </section>
+    <div class="col-sm-6 content">
+        <div class="greetings"><span>Welcome</span></div>
 
-  <section class="content">
-    <div class="greetings"><span>Welcome</span></div>
+        <nav class="menu">
+          <span
+            class="menu-items"
+            (click)="enableForm('login')"
+            [ngClass]="{ active: loginEnabled }"
+            >Login</span
+          >
+          <span
+            class="menu-items"
+            (click)="enableForm('register')"
+            [ngClass]="{ active: registerEnabled }"
+            >Register</span
+          >
+          <span
+            class="menu-items"
+            (click)="enableForm('booking')"
+            [ngClass]="{ active: bookingEnabled }"
+            >Booking Form</span
+          >
+        </nav>
 
-    <nav class="menu">
-      <span
-        class="menu-items"
-        (click)="enableForm('login')"
-        [ngClass]="{ active: loginEnabled }"
-        >Login</span
-      >
-      <span
-        class="menu-items"
-        (click)="enableForm('register')"
-        [ngClass]="{ active: registerEnabled }"
-        >Register</span
-      >
-      <span
-        class="menu-items"
-        (click)="enableForm('booking')"
-        [ngClass]="{ active: bookingEnabled }"
-        >Booking Form</span
-      >
-    </nav>
+        <form
+          *ngIf="loginForm"
+          [formGroup]="loginForm"
+          (ngSubmit)="onLogin(loginForm.value)"
+        >
+          <!-- <div class="form-group"> -->
+          <mat-form-field appearance="outline" floatLabel="auto" class="w-100">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              placeholder="Enter email"
+            />
+            <mat-error>Invalid Email</mat-error>
+          </mat-form-field>
 
-    <form *ngIf="loginForm" [formGroup]="loginForm" class="form" (ngSubmit)="onLogin(loginForm.value)">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          class="form-control"
-          formControlName="email"
-          placeholder="Enter email"
-          id="email"
-        />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          formControlName="password"
-          placeholder="Password"
-          id="password"
-        />
-      </div>
-      <span class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</span>
-      <button class="btn btn-primary btn-alter" [disabled]="loginForm.invalid || apiInProgress">{{apiInProgress ? 'Logging In' : 'Login'}}</button> 
-    </form>
+          <mat-form-field appearance="outline" floatLabel="auto" class="w-100">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              type="password"
+              formControlName="password"
+              placeholder="Password"
+            />
+            <mat-error>Invalid Email</mat-error>
+          </mat-form-field>
+          <button
+            mat-raised-button
+            class="btn btn-success btn-alter"
+            [disabled]="loginForm.invalid || apiInProgress"
+          >
+            {{ apiInProgress ? "Logging In" : "Login" }}
+          </button>
+        </form>
 
-    <form *ngIf="registerForm" [formGroup]="registerForm" class="form">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          class="form-control"
-          placeholder="Enter email"
-          id="email"
-        />
-      </div>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Enter Username"
-          formControlName="username"
-          id="username"
-        />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          formControlName="password"
-          placeholder="Password"
-          id="password"
-        />
-      </div>
-      <div class="form-group">
-        <label for="con_password">Confirm Password</label>
-        <input
-          type="password"
-          class="form-control"
-          formControlName="con_password"
-          placeholder="Confirm Password"
-          id="con_password"
-        />
-      </div>
-      <button class="btn btn-primary btn-alter" [disabled]="registerForm.invalid || apiInProgress">Register</button>
-    </form>
-
-    <form *ngIf="bookingForm" [formGroup]="bookingForm" class="form">
-      <!--
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            placeholder="Enter email"
-            id="email"
-          />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            formControlName="password"
-            placeholder="Password"
-            id="password"
-          />
-        </div>
-        <button class="btn btn-primary btn-alter">Login</button>
-      -->
-    </form>
-  </section>
+        <form *ngIf="registerForm" [formGroup]="registerForm" class="form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Enter email"
+              id="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Username"
+              formControlName="username"
+              id="username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              placeholder="Password"
+              id="password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="con_password">Confirm Password</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="con_password"
+              placeholder="Confirm Password"
+              id="con_password"
+            />
+          </div>
+          <button
+            class="btn btn-primary btn-alter"
+            [disabled]="registerForm.invalid || apiInProgress"
+          >
+            Register
+          </button>
+        </form>
+    </div>
+  </div>
 </div>

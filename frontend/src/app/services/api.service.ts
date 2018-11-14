@@ -13,17 +13,18 @@ export class ApiService {
     private localStorageService: LocalStorageService
   ) {}
 
-  onLogin(body) {
-    return this.http
-      .post(`${environment["apiBase"]}user/login`, body)
-      .map((res: Response) => {
-        let response = res.json();
-        this.localStorageService.setItem("token", response["token"]);
-        this.localStorageService.setItem("userRole", response["role"]);
-        return res.json();
-      })
-      .catch((error: any) => {
-        return Observable.throw(error.json() || "Server error");
-      });
+  async onLogin(body) {
+    try {
+      let res = await this.http
+        .post(`${environment["apiBase"]}user/login`, body)
+        .toPromise();
+      let response = res.json();
+      this.localStorageService.setItem("token", response["token"]);
+      this.localStorageService.setItem("userRole", response["role"]);
+      this.localStorageService.setItem('name', response["firstname"] + ' ' + response["lastname"])
+      return res.json();
+    } catch (error) {
+      throw (error.json());
+    }
   }
 }

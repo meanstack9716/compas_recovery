@@ -11,5 +11,8 @@ export default (app) => {
     /* Route for User Login  */
     app.route("/user/login").post(user.login);
 
+    /* Route for Token  Verify*/
+    app.route("/user/verify").get(user.verify);
+
     return app;
 };

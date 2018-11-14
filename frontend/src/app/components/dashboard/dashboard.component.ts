@@ -8,16 +8,18 @@ import { Router } from "@angular/router";
   styleUrls: ["./dashboard.component.css"]
 })
 export class DashboardComponent implements OnInit {
+  userName: string;
   constructor(
     private localStorageService: LocalStorageService,
     private router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userName = this.localStorageService.getItem("name");
+  }
 
   logout() {
-    this.localStorageService.clearItem("userRole");
-    this.localStorageService.clearItem("token");
+    this.localStorageService.clearStorage();
     this.router.navigate(["login"]);
   }
 }
