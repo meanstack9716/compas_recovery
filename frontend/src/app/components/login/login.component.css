@@ -1,23 +1,19 @@
+.container-fluid {
+  margin: 0;
+}
+
 .landing-page {
   height: 100vh;
-  background: #fff;
-  margin: 0 auto;
 }
 
 .logo {
-  width: 50%;
   height: 100%;
-  display: inline-block;
-  background: linear-gradient(
-      rgba(128, 128, 128, 0.6),
-      rgba(128, 128, 128, 0.6)
-    ),
-    url(/assets/images/background.jpg) center no-repeat;
   position: relative;
-  background-size: cover;
+  display: flex;
+  background: #efefef;
 }
 
-.logo figure img {
+.logo img {
   width: 32rem;
   position: absolute;
   top: 6rem;
@@ -26,24 +22,22 @@
 }
 
 .logo-tagline {
+  margin-bottom: 4rem;
   font-size: 2.5rem;
-  position: absolute;
   color: #fff;
   letter-spacing: 1px;
   word-spacing: 2px;
-  bottom: 10rem;
   padding: 2rem;
   background: #004f85;
   line-height: 30px;
-  width: 100%;
+  align-self: flex-end;
+  flex: 1;
+  margin: 0rem -15px 2rem -15px;
   text-align: center;
 }
 
 .content {
-  display: inline-block;
-  width: 50%;
   height: 100%;
-  vertical-align: top;
   background: #004f85;
   padding: 5rem;
   color: #fff;
@@ -52,6 +46,22 @@
 .greetings {
   font-size: 3rem;
   margin-bottom: 5rem;
+  backface-visibility: hidden;
+  animation: slide-in 1s linear;
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
 
 .menu {
@@ -88,6 +98,5 @@
 }
 
 .btn-alter {
-  font-size: 1.4rem;
-  margin-top: 1rem;
+  font-size: 2rem;
 }
