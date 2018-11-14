@@ -16,8 +16,10 @@ module.exports = function () {
     let users = mongoose.Schema({
         email: { type: String, unique: true },
         password: { type: String },
-        name: { type: String },
+        firstname: { type: String },
+        lastname: { type: String },
         phone: { type: String },
+        token: {type: String },
         role: { type: String, enum: ['admin_supervisor', 'admin_controller', 'sub_contractor', 'customer', 'employees'] },
     }, {
             collection: "users",
