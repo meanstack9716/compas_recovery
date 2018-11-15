@@ -9,10 +9,16 @@
 
 html {
   color: #555;
-  font-size: 10px;
+  font-size: 16px;
   font-family: "Lato", sans-serif;
   font-weight: 400;
   text-rendering: optimizeLegibility;
+}
+
+@media only screen and (max-width: 1366px){
+  html {
+    font-size: 14px;
+  }
 }
 
 body {
