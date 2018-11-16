@@ -33,7 +33,7 @@
             <mat-error>Invalid Email</mat-error>
           </mat-form-field>
           <div *ngIf="errorMessage" class="text-danger">
-            <strong>{{ errorMessage }} invalid login credrentials</strong>
+            <strong>{{ errorMessage }}</strong>
           </div>
           <button mat-raised-button class="btn btn-primary btn-login" [disabled]="loginForm.invalid || apiInProgress">
             {{ apiInProgress ? "Signing In" : "Sign In" }}
