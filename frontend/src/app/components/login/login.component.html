@@ -32,16 +32,21 @@
             <input matInput type="password" formControlName="password" placeholder="Password" />
             <mat-error>Invalid Email</mat-error>
           </mat-form-field>
-          <button mat-raised-button class="btn btn-primary btn-alter" [disabled]="loginForm.invalid || apiInProgress">
+          <div *ngIf="errorMessage" class="text-danger">
+            <strong>{{ errorMessage }} invalid login credrentials</strong>
+          </div>
+          <button mat-raised-button class="btn btn-primary btn-login" [disabled]="loginForm.invalid || apiInProgress">
             {{ apiInProgress ? "Logging In" : "Login" }}
             <span *ngIf="apiInProgress" class="lds-dual-ring"></span>
           </button>
-          <span *ngIf="errorMessage" class="text-danger">
-            <strong>{{ errorMessage }}</strong>
-          </span>
         </form>
-        <div class="register">or Register as a Driver
-          <a>Click Here!</a>
+        <div class="register">
+          <div class="register-btn register-btn--primary">
+            Register as a customer
+          </div>
+          <div class="register-btn register-btn--secondary">
+            Register as a driver
+          </div>
         </div>
       </div>
     </div>
