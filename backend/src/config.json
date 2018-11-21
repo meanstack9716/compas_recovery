@@ -1,0 +1,13 @@
+{
+    "port": 8091,
+    "bodyLimit": "2mb",
+    "corsHeaders": ["Link"],
+    "db":
+    {
+        "host": "127.0.0.1",
+        "name": "hr_recruit_dev",
+        "password": "java@123",
+        "username": "root"
+    },
+    "mongodb": "mongodb://localhost/compass_recovery"
+}

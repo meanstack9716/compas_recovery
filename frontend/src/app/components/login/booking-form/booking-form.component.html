@@ -1,0 +1,269 @@
+<h2 mat-dialog-title class="text-center">Booking Form</h2>
+<mat-dialog-content>
+  <form *ngIf="bookingForm" [formGroup]="bookingForm">
+    <mat-horizontal-stepper [linear]="true" #stepper formArrayName="formArray">
+      <mat-step formGroupName="0" [stepControl]="formArray.get([0])">
+        <ng-template matStepLabel>Your Details</ng-template>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>Company Name(if appropriate)</mat-label>
+              <input matInput type="text" formControlName="companyName" />
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>Name</mat-label>
+              <input matInput type="text" formControlName="name" required />
+              <mat-error>This Field is Required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>Phone</mat-label>
+              <input matInput type="text" formControlName="phone" required />
+              <mat-error>This Field is Required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>Email</mat-label>
+              <input matInput type="email" formControlName="email" required />
+              <mat-error>Invalid Email</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>Post Code</mat-label>
+              <input matInput type="text" formControlName="postCode" />
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>Flat No</mat-label>
+              <input matInput type="text" formControlName="flatNo" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>House/Buildin No</mat-label>
+              <input matInput type="text" formControlName="houseNo" required />
+              <mat-error>This Field is Required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>Street</mat-label>
+              <input matInput type="text" formControlName="street" required />
+              <mat-error>This Field is Required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>City</mat-label>
+              <input matInput type="text" formControlName="city" required />
+              <mat-error>This Field is Required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="navigate">
+          <button
+            class="ml-auto"
+            mat-raised-button
+            matStepperNext
+            type="button"
+          >
+            Next
+          </button>
+        </div>
+      </mat-step>
+      <mat-step formGroupName="1" [stepControl]="formArray.get([1])">
+        <ng-template matStepLabel>Vehicle Details</ng-template>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>Reg. No</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="registrationNumber"
+                required
+              />
+              <mat-error>This Field is Required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>Make</mat-label>
+              <input matInput type="text" formControlName="make" required />
+              <mat-error>This Field is Required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>Model</mat-label>
+              <input matInput type="text" formControlName="model" required />
+              <mat-error>This Field is Required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>4 Wheel Drive (Quattro, Xdrive)?</mat-label>
+              <input matInput type="text" formControlName="wheelDrive" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>Van</mat-label>
+              <mat-select formControlName="van" placeholder="Select A Company">
+                <mat-option>Select</mat-option>
+                <mat-option [value]="yes">Yes</mat-option>
+                <mat-option [value]="no">No</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>Is it Loaded?</mat-label>
+              <input matInput type="text" formControlName="loaded" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <mat-form-field
+              class="w-100"
+              appearance="outline"
+              floatLabel="auto"
+            >
+              <mat-label>Loaded Type</mat-label>
+              <input matInput type="text" formControlName="loadedType" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="navigate">
+          <button mat-raised-button matStepperPrevious type="button">
+            Previous
+          </button>
+          <button
+            class="ml-auto"
+            mat-raised-button
+            matStepperNext
+            type="button"
+          >
+            Next
+          </button>
+        </div>
+      </mat-step>
+      <mat-step formGroupName="2" [stepControl]="formArray.get([2])">
+        <ng-template matStepLabel>Description of Fault</ng-template>
+        <div class="navigate">
+          <button mat-raised-button matStepperPrevious type="button">
+            Previous
+          </button>
+          <button
+            class="ml-auto"
+            mat-raised-button
+            matStepperNext
+            type="button"
+          >
+            Next
+          </button>
+        </div>
+      </mat-step>
+      <mat-step formGroupName="3" [stepControl]="formArray.get([3])">
+        <ng-template matStepLabel>Location of Vehicle</ng-template>
+        <div class="navigate">
+          <button mat-raised-button matStepperPrevious type="button">
+            Previous
+          </button>
+          <button
+            class="ml-auto"
+            mat-raised-button
+            matStepperNext
+            type="button"
+          >
+            Next
+          </button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+</mat-dialog-content>
+<button mat-raised-button class="ml-4" (click)="close('login')">Close</button>
+<mat-dialog-actions>
+</mat-dialog-actions>

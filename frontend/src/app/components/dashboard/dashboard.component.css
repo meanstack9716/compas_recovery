@@ -1,0 +1,25 @@
+h2 {
+  font-size: 4rem;
+  padding: 9rem 0rem;
+}
+
+.user-name {
+  margin-right: 1em;
+  text-transform: capitalize;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: auto;
+}
+
+.icon-alter {
+  font-size: 3rem;
+  cursor: pointer;
+  vertical-align: bottom;
+}
+
+.no-outline {
+  outline: none;
+}
